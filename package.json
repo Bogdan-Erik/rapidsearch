@@ -20,7 +20,7 @@
     "husky": "^8.0.0"
   },
   "scripts": {
-    "dev": "tsc && node src/index.js",
+    "dev": "tsc && node build/src/index.js",
     "lint": "gts lint",
     "clean": "gts clean",
     "compile": "tsc",
