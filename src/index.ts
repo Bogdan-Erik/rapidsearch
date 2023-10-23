@@ -1,5 +1,5 @@
-import {MD5} from 'crypto-js';
 import {writeFileSync, readFileSync, mkdirSync, existsSync} from 'fs';
+import {HashUtility} from './utils/HashUtility';
 
 interface FSInterface {
   directory: string;
@@ -42,20 +42,6 @@ export class FS implements FSInterface {
       }
     }
     return undefined;
-  }
-}
-
-class HashUtility {
-  static hashingContent(content: string): string {
-    const hashedString = MD5(content).toString();
-
-    return hashedString;
-  }
-
-  static convertFilename(filename: string): string {
-    const convertedFilename = filename.replace(/[^a-zA-Z]/g, '');
-
-    return convertedFilename;
   }
 }
 

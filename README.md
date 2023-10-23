@@ -15,6 +15,20 @@ The `HashUtility` class serves as a helper class designed for code reusability. 
 
 Code formatting and validation are performed by `GTS`, which adheres to the `TypeScript style guide`, `formatter`, and `linter provided` by Google. It includes an automatic code fixer. This ensures that code uploaded to the Git repository is always error-free. We run tests using `Husky` before linting automatically. If any errors are detected, it prevents the push.
 
+# Deploying code to server (optional)
+
+To deploy the code, I utilize GitHub Actions, a workflow automation tool provided by GitHub. In this workflow, I integrate the API key provided by the current cloud provider (AWS, Azure, GCP) into GitHub Actions secrets. Subsequently, I configure the deployment steps using this API key. The process typically consists of the following stages:
+
+1. **Run Tests**
+
+2. **Code Quality Check**
+
+3. **Transpile from TS to JS**
+
+4. **Deployment**
+
+This approach ensures secure and automated code deployment, leveraging the capabilities of GitHub Actions while keeping the cloud provider's API keys safely stored as secrets.
+
 ## Use
 - for run tsc and program
   ```
@@ -52,5 +66,7 @@ Code formatting and validation are performed by `GTS`, which adheres to the `Typ
 |    |—— index.ts
 |    |—— tests
 |        |—— FS.test.ts
+|    |—— utils
+|        |—— HashUtility.ts
 |—— tsconfig.json
 ```
