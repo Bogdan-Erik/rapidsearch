@@ -34,14 +34,11 @@ export class FS implements FSInterface {
   }
   get(filename: string): string | undefined {
     const hash = this.fileMap[filename];
+    const filePath = `${this.directory}/${hash}`;
     if (hash) {
-      try {
-        const filePath = `${this.directory}/${hash}`;
-        return readFileSync(filePath, 'utf8');
-      } catch {
-        throw new Error(
-          'An error occurred while reading the file: ' + filename
-        );
+      const fileContent = readFileSync(filePath, 'utf8');
+      if (fileContent) {
+        return fileContent;
       }
     }
     return undefined;
